@@ -1,29 +1,31 @@
 # VGMPulse
 
-VGM / VGZ 芯片音乐播放器，音乐文件在本地解码。
+English | [简体中文](README.zh-CN.md)
 
-![VGMPulse 界面预览](docs/screenshot.png)
+A VGM/VGZ music player with live waveforms for every channel.
 
-- 逐通道波形、电平、芯片及通道名称
-- 播放列表、进度定位、循环、静音与独奏
-- 波形与音量规格化、增益调节
-- 手机适配、显示密度设置、中英文切换
+![VGMPulse screenshot](docs/screenshot.png)
 
-## 本地运行
+- Per-channel waveforms, level meters, and chip and channel names
+- Playlists, seeking, looping, mute and solo
+- Waveform and volume normalization, plus gain controls
+- Mobile layouts, display density options, and English/Chinese UI
 
-需要 Node.js 22.13 或更新版本。
+## Run locally
+
+Requires Node.js 22.13 or later.
 
 ```sh
 npm install
 npm run dev
 ```
 
-构建：`npm run build`。
+Build: `npm run build`.
 
-## 版权与许可
+## License
 
 Copyright © 2017–2026 JamXi, JSG-LLC.
 
-采用 [GNU GPL v3.0](LICENSE)（GPL-3.0-only）许可。
+Licensed under [GNU GPL v3.0](LICENSE) (GPL-3.0-only).
 
-音频核心来自 [Chip Player JS](https://github.com/mmontag/chip-player-js)，使用 [LibVGM](https://github.com/ValleyBell/libvgm)。第三方组件保留各自的版权与许可，详见 [第三方声明](public/THIRD_PARTY_NOTICES.txt) 和 [音频核心来源](public/engine/NOTICE.txt)。
+The audio engine comes from [Chip Player JS](https://github.com/mmontag/chip-player-js) and uses [LibVGM](https://github.com/ValleyBell/libvgm). Third-party components retain their own copyrights and licenses; see [third-party notices](public/THIRD_PARTY_NOTICES.txt) and [engine sources](public/engine/NOTICE.txt).
