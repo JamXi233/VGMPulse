@@ -2,6 +2,8 @@
 
 [English](README.md) | 简体中文
 
+[在线使用](https://jamxi233.github.io/VGMPulse/)
+
 支持逐通道实时波形显示的 VGM / VGZ 音乐播放器。
 
 ![VGMPulse 界面预览](docs/screenshot.png)

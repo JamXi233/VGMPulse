@@ -12,6 +12,7 @@ import type {Density} from '../lib/preferences';
 import {usePlayerPreferences} from '../lib/use-preferences';
 import {animate} from '../lib/animation';
 import {samplePeak,smoothLevel,levelDb} from '../lib/meter';
+import {assetUrl} from '../lib/assets.js';
 type Entry={id:string;file:File;demo?:boolean};
 const fmt=(s:number)=>`${Math.floor(Math.max(0,s)/60).toString().padStart(2,'0')}:${Math.floor(Math.max(0,s)%60).toString().padStart(2,'0')}`;
 function Icon({name,size=20}:{name:string;size?:number}){
@@ -93,7 +94,7 @@ export default function Home(){
   const e=new VGMEngine();engine.current=e;e.onFrame=f=>{scopeFrame.current=f;const now=performance.now();if(now-lastUI.current>250||!e.playing){setPosition(f.position);lastUI.current=now;}};
   e.onEnd=()=>{if(!trackRef.current)return;if(loopRef.current){e.seek(0);setPosition(0);void e.play().then(started=>{if(started)setPlaying(true);});}else{setPlaying(false);setPosition(trackRef.current?.duration||0);}};
   e.onError=s=>{setError(s);setPlaying(false);setLoading(false);void e.pause();};let cancelled=false;const initialGeneration=generation.current;
-  fetch('/demo.vgm?v=20261020-vgmpulse-demo').then(r=>{if(!r.ok)throw Error('DEMO_LOAD_FAILED');return r.blob();}).then(blob=>{if(cancelled||generation.current!==initialGeneration)return;const entry={id:'demo',file:new File([blob],`${project.name}.vgm`),demo:true};setEntries([entry]);void load(entry);}).catch(e=>{if(!cancelled&&generation.current===initialGeneration){setError(e.message);setLoading(false);}});
+  fetch(assetUrl('demo.vgm?v=20261020-vgmpulse-demo')).then(r=>{if(!r.ok)throw Error('DEMO_LOAD_FAILED');return r.blob();}).then(blob=>{if(cancelled||generation.current!==initialGeneration)return;const entry={id:'demo',file:new File([blob],`${project.name}.vgm`),demo:true};setEntries([entry]);void load(entry);}).catch(e=>{if(!cancelled&&generation.current===initialGeneration){setError(e.message);setLoading(false);}});
   return()=>{cancelled=true;cancelPending();e.destroy();};
  },[load,cancelPending]);
  useEffect(()=>{engine.current?.setDynamics(preferences.normalization,preferences.preampDb);},[preferences.normalization,preferences.preampDb]);

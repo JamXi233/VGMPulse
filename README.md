@@ -2,6 +2,8 @@
 
 English | [简体中文](README.zh-CN.md)
 
+[Open player](https://jamxi233.github.io/VGMPulse/)
+
 A VGM/VGZ music player with live waveforms for every channel.
 
 ![VGMPulse screenshot](docs/screenshot.png)

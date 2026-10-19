@@ -1,3 +1,5 @@
+import {assetUrl} from './assets.js';
+
 export type Voice={id:number;name:string;chip:string};
 export type Track={title:string;artist:string;game:string;system:string;date:string;comment:string;duration:number;voices:Voice[]};
 export type ScopeFrame={waves:Float32Array[];levels:number[];position:number;timestamp?:number};
@@ -16,7 +18,7 @@ export class VGMEngine {
     const stopped=this.clear(),loadEpoch=this.epoch;
     await stopped;
     if(loadEpoch!==this.epoch)throw new DOMException('PLAYBACK_CANCELLED','AbortError');
-    const worker=new Worker('/engine/decoder-worker.js?v=20261020-localized',{type:'module'});this.worker=worker;
+    const worker=new Worker(assetUrl('engine/decoder-worker.js?v=20261020-localized'),{type:'module'});this.worker=worker;
     return new Promise((resolve,reject)=>{
       this.cancelLoad=reject;
       worker.onerror=()=>{if(worker!==this.worker)return;this.cancelLoad=null;const msg='DECODER_FAILED';reject(Error(msg));this.onError?.(msg);};
@@ -39,7 +41,7 @@ export class VGMEngine {
       this.context=new AudioContext({sampleRate:44100});
       // Resume from the user's click before waiting for the worklet module.
       const resume=this.context.resume();
-      await this.context.audioWorklet.addModule('/engine/audio-worklet.js');
+      await this.context.audioWorklet.addModule(assetUrl('engine/audio-worklet.js'));
       this.node=new AudioWorkletNode(this.context,'chip-output',{outputChannelCount:[2]});
       this.gain=this.context.createGain();this.gain.gain.value=this.volume;this.node.connect(this.gain).connect(this.context.destination);
       this.node.port.postMessage({type:'settings',...this.dynamics});

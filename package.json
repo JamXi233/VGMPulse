@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build",
+    "build:pages": "node scripts/build-pages.mjs",
     "start": "vinext start"
   },
   "dependencies": {

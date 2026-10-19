@@ -7,6 +7,9 @@ const usePolling = process.env.VGM_WATCH_POLLING === "1" ||
 
 export default defineConfig({
   plugins: [vinext()],
+  define: {
+    'process.env.NEXT_PUBLIC_BASE_PATH': JSON.stringify(process.env.NEXT_PUBLIC_BASE_PATH || ''),
+  },
   server: usePolling
     ? { watch: { useFsEvents: false, usePolling: true } }
     : undefined,
