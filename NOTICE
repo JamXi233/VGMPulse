@@ -1,0 +1,14 @@
+VGMPulse
+Copyright (c) 2017-2026 JamXi, JSG-LLC.
+
+The original VGMPulse application code, interface and included VGMPulse demo
+are licensed under the GNU General Public License, version 3 only
+(SPDX-License-Identifier: GPL-3.0-only). See LICENSE for the full terms.
+
+Third-party code, fonts and other materials retain their original copyrights
+and licenses. This project copyright does not replace their notices.
+See public/THIRD_PARTY_NOTICES.txt and public/engine/NOTICE.txt for component
+attributions, license texts and audio-core source references.
+
+Music files imported by users remain the property of their respective rights
+holders. No rights to those works are granted by the software license.
