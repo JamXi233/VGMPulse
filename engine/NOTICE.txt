@@ -1,0 +1,15 @@
+VGMPulse audio engine
+
+Unmodified chip-core.js and chip-core.wasm from Chip Player JS by Matt Montag and contributors.
+Upstream: https://github.com/mmontag/chip-player-js
+Original binary: https://chiptune.app/static/js/chip-core.6e56.wasm
+Original JavaScript source map: https://chiptune.app/static/js/chip-core.fdf9.chunk.js.map
+Source tree reference: e90f505ccea598fb91cf08b02c4dbb41f0785632
+Source and build instructions: https://github.com/mmontag/chip-player-js/tree/e90f505ccea598fb91cf08b02c4dbb41f0785632
+The bundled engine combines LibVGM and other emulators. See upstream source for each component's copyright and license.
+Chip Player JS is distributed under GPL-3.0; the license text is in LICENSE-chip-player-js.txt.
+
+VGMPulse's browser player, worker, worklet and interface were written for this project.
+Original VGMPulse demo source: scripts/generate-demo.py.
+VGMPulse project and demo: Copyright (c) 2017-2026 JamXi, JSG-LLC.
+Project license: GPL-3.0-only. Third-party copyrights and licenses are retained.
